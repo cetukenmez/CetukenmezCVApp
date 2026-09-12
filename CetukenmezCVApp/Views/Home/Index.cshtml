@@ -1,5 +1,349 @@
-﻿@{
-    ViewData["Title"] = "Anasayfa";
+@model CvProfile
+@{
+    var startYear = 2018;
+    var jsonLd = System.Text.Json.JsonSerializer.Serialize(new Dictionary<string, object?>
+    {
+        ["@context"] = "https://schema.org",
+        ["@type"] = "Person",
+        ["name"] = Model.Name,
+        ["jobTitle"] = Model.Title,
+        ["email"] = $"mailto:{Model.Email}",
+        ["url"] = Model.SiteUrl,
+        ["image"] = $"{Model.SiteUrl}/images/profil.webp",
+        ["address"] = new Dictionary<string, string> { ["@type"] = "PostalAddress", ["addressLocality"] = "İzmir", ["addressCountry"] = "TR" },
+        ["sameAs"] = Model.Socials.Select(s => s.Url).ToArray()
+    });
 }
 
-<div></div>
+@section Head {
+    <script type="application/ld+json">@Html.Raw(jsonLd)</script>
+}
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <span class="eyebrow reveal"><span class="pulse" aria-hidden="true"></span> Available for freelance &amp; collaboration</span>
+            <h1 class="hero-title reveal" style="--d:60ms">
+                Hi, I'm <span class="text-gradient">@Model.Name</span>
+            </h1>
+            <p class="hero-subtitle reveal" style="--d:120ms">@Model.Title</p>
+            <p class="hero-tagline reveal" style="--d:180ms">@Model.Tagline</p>
+            <div class="hero-actions reveal" style="--d:240ms">
+                <a class="btn btn-primary btn-lg" href="/cv.pdf">
+                    <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+                </a>
+                <a class="btn btn-ghost btn-lg" href="mailto:@Model.Email">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i> Get in touch
+                </a>
+            </div>
+            <ul class="social-list hero-social reveal" style="--d:300ms">
+                @foreach (var social in Model.Socials)
+                {
+                    <li><a href="@social.Url" target="_blank" rel="noopener noreferrer" aria-label="@social.Name" title="@social.Name"><i class="@social.Icon" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+        </div>
+        <div class="hero-photo reveal" style="--d:120ms">
+            <div class="photo-ring">
+                <img src="~/images/profil.webp" alt="Portrait of @Model.Name" width="480" height="623" fetchpriority="high" />
+            </div>
+            <div class="photo-badge">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i> @Model.Location
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" aria-label="Highlights">
+    <div class="container">
+        <ul class="stats-grid">
+            @foreach (var (stat, i) in Model.Stats.Select((s, i) => (s, i)))
+            {
+                <li class="stat reveal" style="--d:@(i * 80)ms">
+                    <span class="stat-value text-gradient">@stat.Value</span>
+                    <span class="stat-label">@stat.Label</span>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">About</span>
+            <h2>A bit about me</h2>
+        </div>
+        <div class="about-grid">
+            <p class="about-bio reveal">@Model.Bio</p>
+            <dl class="fact-list reveal" style="--d:100ms">
+                <div class="fact">
+                    <dt><i class="fa-regular fa-calendar" aria-hidden="true"></i> Born</dt>
+                    <dd>@Model.BirthYear</dd>
+                </div>
+                <div class="fact">
+                    <dt><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email</dt>
+                    <dd><a href="mailto:@Model.Email">@Model.Email</a></dd>
+                </div>
+                <div class="fact">
+                    <dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Location</dt>
+                    <dd>@Model.Location</dd>
+                </div>
+                <div class="fact">
+                    <dt><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> My apps</dt>
+                    <dd><a href="@Model.BrandUrl" target="_blank" rel="noopener noreferrer">@Model.BrandName</a></dd>
+                </div>
+                <div class="fact">
+                    <dt><i class="fa-solid fa-code" aria-hidden="true"></i> Coding since</dt>
+                    <dd>@startYear</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section section-alt" id="skills">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Skills</span>
+            <h2>What I work with</h2>
+        </div>
+        <div class="skills-grid">
+            @foreach (var (group, i) in Model.SkillGroups.Select((g, i) => (g, i)))
+            {
+                <article class="card skill-card reveal" style="--d:@(i * 70)ms">
+                    <h3 class="skill-title"><span class="skill-icon"><i class="@group.Icon" aria-hidden="true"></i></span> @group.Name</h3>
+                    <ul class="chip-list">
+                        @foreach (var skill in group.Skills)
+                        {
+                            <li class="chip">@skill</li>
+                        }
+                    </ul>
+                </article>
+            }
+        </div>
+        <p class="also-familiar reveal">
+            <span>Also familiar with:</span>
+            @foreach (var item in Model.AlsoFamiliar)
+            {
+                <span class="chip chip-soft">@item</span>
+            }
+        </p>
+    </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Experience</span>
+            <h2>Where I've worked</h2>
+        </div>
+        <ol class="timeline">
+            @foreach (var (job, i) in Model.Experience.Select((j, i) => (j, i)))
+            {
+                <li class="timeline-item reveal @(job.IsCurrent ? "is-current" : "")" style="--d:@(i * 60)ms">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <article class="card timeline-card">
+                        <header class="timeline-head">
+                            <div>
+                                <h3 class="timeline-role">@job.Role</h3>
+                                <p class="timeline-company">
+                                    @if (job.CompanyUrl is not null)
+                                    {
+                                        <a href="@job.CompanyUrl" target="_blank" rel="noopener noreferrer">@job.Company</a>
+                                    }
+                                    else
+                                    {
+                                        @job.Company
+                                    }
+                                </p>
+                            </div>
+                            <span class="timeline-period @(job.IsCurrent ? "is-current" : "")">@job.Period</span>
+                        </header>
+                        <p class="timeline-desc">@job.Description</p>
+                        <ul class="chip-list">
+                            @foreach (var tag in job.Tags)
+                            {
+                                <li class="chip chip-soft">@tag</li>
+                            }
+                        </ul>
+                    </article>
+                </li>
+            }
+        </ol>
+    </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section section-alt" id="education">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Education</span>
+            <h2>Where I studied</h2>
+        </div>
+        <div class="edu-grid">
+            @foreach (var (edu, i) in Model.Education.Select((e, i) => (e, i)))
+            {
+                <article class="card edu-card reveal" style="--d:@(i * 70)ms">
+                    <span class="edu-period">@edu.Period</span>
+                    <h3 class="edu-degree">@edu.Degree</h3>
+                    <p class="edu-school"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> @edu.School</p>
+                    <ul class="edu-details">
+                        @foreach (var detail in edu.Details)
+                        {
+                            <li>@detail</li>
+                        }
+                    </ul>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-head section-head-row reveal">
+            <div>
+                <span class="section-kicker">Projects</span>
+                <h2>Apps I've shipped</h2>
+                <p class="section-lead">Personal projects I designed, built and published on the App Store and Google Play under my own brand, <a href="@Model.BrandUrl" target="_blank" rel="noopener noreferrer">@Model.BrandName</a>.</p>
+            </div>
+            <a class="company-pill" href="@Model.BrandUrl" target="_blank" rel="noopener noreferrer">
+                <img src="@Model.BrandLogo" alt="" width="40" height="40" loading="lazy" />
+                <span>
+                    <strong>@Model.BrandName</strong>
+                    <small>cordeliasoftware.net <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></small>
+                </span>
+            </a>
+        </div>
+        <div class="project-grid">
+            @foreach (var (project, i) in Model.Projects.Select((p, i) => (p, i)))
+            {
+                <article class="card project-card reveal" style="--accent:@project.Accent; --d:@(i * 90)ms">
+                    <div class="project-top">
+                        <img class="project-logo" src="@project.Logo" alt="@project.Name logo" width="96" height="96" loading="lazy" />
+                        <div class="project-badges">
+                            <span class="project-tag"><i class="@project.CategoryIcon" aria-hidden="true"></i> @project.Category</span>
+                            @if (project.IsNew)
+                            {
+                                <span class="project-new">New</span>
+                            }
+                        </div>
+                    </div>
+                    <h3 class="project-name">@project.Name</h3>
+                    <p class="project-tagline">@project.Tagline</p>
+                    <p class="project-desc">@project.Description</p>
+                    <ul class="project-features">
+                        @foreach (var feature in project.Features)
+                        {
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> @feature</li>
+                        }
+                    </ul>
+                    <ul class="chip-list">
+                        @foreach (var tech in project.Tech)
+                        {
+                            <li class="chip chip-soft">@tech</li>
+                        }
+                    </ul>
+                    <div class="store-buttons">
+                        @foreach (var store in project.Stores)
+                        {
+                            if (store.Store == "apple")
+                            {
+                                <a class="store-btn" href="@store.Url" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-apple" aria-hidden="true"></i>
+                                    <span><small>Download on the</small>App Store</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="store-btn" href="@store.Url" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-google-play" aria-hidden="true"></i>
+                                    <span><small>Get it on</small>Google Play</span>
+                                </a>
+                            }
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="section section-alt" id="achievements">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Beyond code</span>
+            <h2>Sports &amp; achievements</h2>
+            <p class="section-lead">Bridge and pétanque took me across Europe with the Turkish national teams. Team sports taught me strategy, patience and how to lose gracefully.</p>
+        </div>
+        <div class="achievement-grid">
+            @foreach (var (item, i) in Model.Achievements.Select((a, i) => (a, i)))
+            {
+                <article class="card achievement-card reveal @(i == 0 ? "is-featured" : "")" style="--d:@(i * 70)ms">
+                    <div class="achievement-media">
+                        <img class="achievement-bg" src="@item.Image" alt="" aria-hidden="true" loading="lazy" />
+                        <img class="achievement-img" src="@item.Image" alt="@item.Title, @item.Place" loading="lazy" />
+                        <span class="achievement-year">@item.Year</span>
+                    </div>
+                    <div class="achievement-body">
+                        @if (i == 0)
+                        {
+                            <span class="medal"><i class="fa-solid fa-medal" aria-hidden="true"></i> Silver medal</span>
+                        }
+                        <h3>@item.Title.Replace(" · Silver Medal", "")</h3>
+                        <p class="achievement-sub">@item.Subtitle</p>
+                        <p class="achievement-place"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> @item.Place</p>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="section" id="references">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">References</span>
+            <h2>People who can vouch for me</h2>
+        </div>
+        <div class="reference-grid">
+            @foreach (var (reference, i) in Model.References.Select((r, i) => (r, i)))
+            {
+                <article class="card reference-card reveal" style="--d:@(i * 80)ms">
+                    <span class="reference-avatar" aria-hidden="true">@string.Concat(reference.Name.Split(' ').Select(p => p[0]))</span>
+                    <div>
+                        <h3>@reference.Name</h3>
+                        <p>@reference.Title</p>
+                        <p class="reference-company">@reference.Company</p>
+                    </div>
+                </article>
+            }
+        </div>
+        <p class="reference-note reveal">Contact details are available on request.</p>
+    </div>
+</section>
+
+<!-- ============ CONTACT CTA ============ -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta card reveal">
+            <div>
+                <h2>Let's build something together</h2>
+                <p>Have a project in mind, or want to talk about .NET, mobile apps or self-hosting? My inbox is open.</p>
+            </div>
+            <div class="cta-actions">
+                <a class="btn btn-primary btn-lg" href="mailto:@Model.Email"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> @Model.Email</a>
+                <a class="btn btn-ghost btn-lg" href="@Model.Socials[0].Url" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</section>

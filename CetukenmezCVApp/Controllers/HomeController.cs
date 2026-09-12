@@ -1,37 +1,20 @@
-﻿using CetukenmezCVApp.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using CetukenmezCVApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace CetukenmezCVApp.Controllers
+namespace CetukenmezCVApp.Controllers;
+
+public sealed class HomeController(CvProfile profile) : Controller
 {
-    public class HomeController : Controller
+    public IActionResult Index() => View(profile);
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error(int? code)
     {
-        private readonly ILogger<HomeController> _logger;
+        var statusCode = code ?? Response.StatusCode;
+        if (statusCode < 400) statusCode = 500;
+        Response.StatusCode = statusCode;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        return View(new ErrorViewModel(statusCode, Activity.Current?.Id ?? HttpContext.TraceIdentifier));
     }
 }

@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local publish output (deploy.sh)
+.publish/
+.publish.tar.gz
+

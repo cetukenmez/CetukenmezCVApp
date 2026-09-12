@@ -1,26 +1,41 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CetukenmezCVApp.Data;
+using CetukenmezCVApp.Models;
+using Microsoft.AspNetCore.HttpOverrides;
 
-namespace CetukenmezCVApp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<CvProfile>(_ => CvData.Profile);
+
+// The app sits behind an Apache reverse proxy on the Pi; trust its X-Forwarded-* headers.
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    options.KnownIPNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://*:5020");
-                });
-    }
+var app = builder.Build();
+
+app.UseForwardedHeaders();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
 }
+app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
+
+// Static assets are fingerprinted and served pre-compressed (br/gz) by MapStaticAssets;
+// no ResponseCompression middleware needed (it conflicts with the pre-compressed responses).
+app.MapStaticAssets();
+app.UseRouting();
+
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
+
+// Stable download URL that survives CV file renames.
+app.MapGet("/cv.pdf", (CvProfile profile) => Results.Redirect("/" + profile.CvFile));
+
+app.Run();
