@@ -18,7 +18,7 @@ public static class CvData
         Email: "cetukenmez@gmail.com",
         Location: "Karşıyaka, İzmir, Türkiye",
         BirthYear: 1992,
-        CvFile: "28072022cv.pdf",
+        CvFile: "can-erdem-tukenmez-cv.pdf",
         SiteUrl: "https://canerdemtukenmez.com.tr",
         BrandName: "Cordelia Software",
         BrandUrl: "https://cordeliasoftware.net/",

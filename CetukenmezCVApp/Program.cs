@@ -38,4 +38,7 @@ app.MapControllerRoute(
 // Stable download URL that survives CV file renames.
 app.MapGet("/cv.pdf", (CvProfile profile) => Results.Redirect("/" + profile.CvFile));
 
+// The 2022 CV was shared under this URL; keep old links working.
+app.MapGet("/28072022cv.pdf", (CvProfile profile) => Results.Redirect("/" + profile.CvFile, permanent: true));
+
 app.Run();

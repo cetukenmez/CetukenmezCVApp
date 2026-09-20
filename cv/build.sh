@@ -13,4 +13,5 @@ done
 if command -v cygpath >/dev/null; then SRC="file:///$(cygpath -m "$DIR/cv.html")"; PDF="$(cygpath -w "$OUT")"; else SRC="file://$DIR/cv.html"; PDF="$OUT"; fi
 "$BROWSER" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 \
   --user-data-dir="${TMPDIR:-/tmp}/cv-chrome-profile" --print-to-pdf="$PDF" "$SRC" >/dev/null 2>&1
+cp "$OUT" "$DIR/../CetukenmezCVApp/wwwroot/can-erdem-tukenmez-cv.pdf"
 ls -la "$OUT"
