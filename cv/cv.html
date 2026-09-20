@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Can Erdem Tükenmez · CV</title>
+<meta name="author" content="Can Erdem Tükenmez" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+    @page { size: A4; margin: 0; }
+
+    :root {
+        --accent: #2563eb;
+        --accent-2: #7c3aed;
+        --ink: #0f172a;
+        --ink-2: #334155;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --side-bg: #0f172a;
+        --side-ink: #e2e8f0;
+        --side-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body {
+        width: 210mm; height: 297mm; overflow: hidden;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        font-size: 8.35pt; line-height: 1.4; color: var(--ink-2);
+        display: grid; grid-template-columns: 66mm 1fr;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', Arial, sans-serif; }
+
+    /* ---------- Sidebar ---------- */
+    .side {
+        background: var(--side-bg); color: var(--side-ink);
+        padding: 9mm 7mm 7mm 8mm; display: flex; flex-direction: column; gap: 4.4mm;
+        position: relative;
+    }
+    .side::before {
+        content: ''; position: absolute; inset: 0 0 auto 0; height: 2.2mm;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .photo {
+        width: 35mm; height: 35mm; margin: 0 auto; border-radius: 50%; padding: 1mm;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+
+    .side h2 {
+        font-size: 9.2pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff;
+        padding-bottom: 1.3mm; margin-bottom: 2.1mm; border-bottom: .35mm solid rgba(255, 255, 255, .16);
+    }
+
+    .contact li { display: flex; align-items: flex-start; gap: 2.4mm; margin-bottom: 1.3mm; word-break: break-word; font-size: 8pt; }
+    .contact svg { flex: 0 0 auto; width: 3.4mm; height: 3.4mm; margin-top: .45mm; stroke: #93c5fd; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .skill-group { margin-bottom: 2mm; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group h3 { font-size: 8.4pt; font-weight: 600; color: #93c5fd; margin-bottom: .9mm; letter-spacing: .02em; }
+    .tags { display: flex; flex-wrap: wrap; gap: 1mm 1.1mm; }
+    .tags li {
+        font-size: 7.2pt; font-weight: 500; line-height: 1.2; padding: .65mm 1.7mm; border-radius: 10mm;
+        background: rgba(255, 255, 255, .08); border: .2mm solid rgba(255, 255, 255, .12); color: #e2e8f0;
+    }
+
+    .plain li { margin-bottom: 1.3mm; font-size: 7.8pt; line-height: 1.35; }
+    .plain li:last-child { margin-bottom: 0; }
+    .plain.inline strong { display: inline; }
+    .plain strong { color: #fff; font-weight: 600; display: block; }
+    .plain span { color: var(--side-muted); }
+
+    /* ---------- Main ---------- */
+    .main { padding: 9mm 10mm 7mm 9.5mm; display: flex; flex-direction: column; gap: 3.5mm; }
+
+    .head h1 { font-size: 25pt; font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--ink); }
+    .head h1 span { color: var(--accent); }
+    .head .role { font-family: 'Outfit', sans-serif; font-size: 10.5pt; font-weight: 500; color: var(--accent-2); letter-spacing: .14em; text-transform: uppercase; margin-top: 1.6mm; }
+    .head p { margin-top: 2.4mm; font-size: 8.5pt; line-height: 1.5; color: var(--ink-2); }
+
+    .section > h2 {
+        display: flex; align-items: center; gap: 2.5mm;
+        font-size: 10.2pt; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink);
+        margin-bottom: 2mm;
+    }
+    .section > h2::after { content: ''; flex: 1; height: .35mm; background: var(--line); }
+    .section > h2::before { content: ''; width: 2.2mm; height: 2.2mm; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+
+    .item { position: relative; padding-left: 4.4mm; margin-bottom: 2.1mm; break-inside: avoid; }
+    .item:last-child { margin-bottom: 0; }
+    .item::before { content: ''; position: absolute; left: 0; top: 1.5mm; width: 1.7mm; height: 1.7mm; border-radius: 50%; border: .45mm solid var(--accent); background: #fff; }
+    .item::after { content: ''; position: absolute; left: .8mm; top: 4mm; bottom: -1.7mm; width: .3mm; background: var(--line); }
+    .item:last-child::after { display: none; }
+
+    .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+    .item-head h3 { font-size: 9.6pt; font-weight: 600; color: var(--ink); }
+    .item-head .date { font-size: 7.8pt; font-weight: 600; color: var(--muted); white-space: nowrap; }
+    .org { font-size: 8.4pt; font-weight: 600; color: var(--accent); margin-bottom: .5mm; }
+    .org span { color: var(--muted); font-weight: 500; }
+
+    .bullets li { position: relative; padding-left: 3mm; margin-bottom: .5mm; }
+    .bullets li::before { content: ''; position: absolute; left: 0; top: 1.75mm; width: 1mm; height: 1mm; border-radius: 50%; background: #cbd5e1; }
+    .stack { margin-top: .6mm; font-size: 7.6pt; color: var(--muted); }
+    .stack b { color: var(--ink-2); font-weight: 600; }
+
+    .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; margin-top: 1.8mm; }
+    .app { border: .3mm solid var(--line); border-radius: 2.4mm; padding: 1.8mm 2.2mm; border-top: .9mm solid var(--c); }
+    .app h4 { font-family: 'Outfit', sans-serif; font-size: 8.8pt; white-space: nowrap; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .app .cat { font-size: 7pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); margin-bottom: .6mm; }
+    .app p { font-size: 7.4pt; line-height: 1.35; margin-top: .6mm; }
+
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 7mm; }
+    .two .item::after { display: none; }
+    .small { font-size: 8pt; }
+</style>
+</head>
+<body>
+
+<aside class="side">
+    <div class="photo"><img src="photo.jpg" alt="" /></div>
+
+    <section>
+        <h2>Contact</h2>
+        <ul class="contact">
+            <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Karşıyaka, İzmir, Türkiye</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+90 554 831 48 79</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:cetukenmez@gmail.com">cetukenmez@gmail.com</a></li>
+            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://canerdemtukenmez.com.tr">canerdemtukenmez.com.tr</a></li>
+            <li><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a href="https://www.linkedin.com/in/can-erdem-tukenmez/">linkedin.com/in/can-erdem-tukenmez</a></li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><a href="https://github.com/cetukenmez">github.com/cetukenmez</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <div class="skill-group">
+            <h3>Backend</h3>
+            <ul class="tags"><li>C#</li><li>.NET 10</li><li>ASP.NET Core</li><li>ASP.NET MVC</li><li>Web API / REST</li><li>Entity Framework Core</li><li>ADO.NET</li></ul>
+        </div>
+        <div class="skill-group">
+            <h3>Mobile</h3>
+            <ul class="tags"><li>.NET MAUI</li><li>Xamarin</li><li>App Store &amp; Google Play publishing</li></ul>
+        </div>
+        <div class="skill-group">
+            <h3>Database</h3>
+            <ul class="tags"><li>Oracle PL/SQL</li><li>MySQL / MariaDB</li><li>T-SQL</li></ul>
+        </div>
+        <div class="skill-group">
+            <h3>Frontend</h3>
+            <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>Razor</li></ul>
+        </div>
+        <div class="skill-group">
+            <h3>Tools &amp; Ops</h3>
+            <ul class="tags"><li>Git</li><li>GitHub</li><li>Azure DevOps</li><li>Visual Studio</li><li>Linux</li><li>Apache</li><li>systemd</li></ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Languages</h2>
+        <ul class="plain inline">
+            <li><strong>Turkish</strong> <span>· Native</span></li>
+            <li><strong>English</strong> <span>· Professional working proficiency</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Sports</h2>
+        <ul class="plain">
+            <li><strong>Bridge · Turkey National Team</strong><span>Silver medal, 28th European Youth Team Championships, Veldhoven 2022. Also 2015, 2016 and 2017 European Youth Championships.</span></li>
+            <li><strong>Pétanque · Turkey National Team</strong><span>European Open Team Championships, Göteborg 2011.</span></li>
+            <li><strong>Basketball · Football · Tennis</strong><span>Amateur</span></li>
+        </ul>
+    </section>
+</aside>
+
+<main class="main">
+    <header class="head">
+        <h1>Can Erdem <span>Tükenmez</span></h1>
+        <div class="role">Software Developer</div>
+        <p>Software developer with 8+ years of experience building backend systems and web applications on the .NET stack, currently at Migros, Türkiye's leading grocery retailer. In my own time I design, build and publish cross-platform mobile apps with .NET MAUI, three of them live on the App Store and Google Play, and run the Linux servers behind them. M.Sc. in Software Engineering; European silver medallist with the national bridge team.</p>
+    </header>
+
+    <section class="section">
+        <h2>Experience</h2>
+
+        <div class="item">
+            <div class="item-head"><h3>.NET Developer</h3><span class="date">Jul 2022 – Present</span></div>
+            <div class="org">Migros Ticaret A.Ş. <span>· İzmir</span></div>
+            <ul class="bullets">
+                <li>Backend developer building and maintaining enterprise applications for one of Türkiye's largest retailers.</li>
+                <li>Develop services and web modules with .NET Core and ASP.NET MVC; write and tune Oracle PL/SQL on the data side.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> .NET Core, ASP.NET MVC, PL/SQL, JavaScript, jQuery, CSS</div>
+        </div>
+
+        <div class="item">
+            <div class="item-head"><h3>R&amp;D Software Developer</h3><span class="date">Feb 2019 – Jul 2022</span></div>
+            <div class="org">Probel Software Inc. <span>· İzmir</span></div>
+            <ul class="bullets">
+                <li>Backend developer on the Hospital Information Management System used by hospitals across Türkiye.</li>
+                <li>Built business-intelligence and purchasing applications for provincial health directorates.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> ASP.NET MVC, C#, PL/SQL, JavaScript</div>
+        </div>
+
+        <div class="item">
+            <div class="item-head"><h3>Freelance Software Developer</h3><span class="date">2018 – Present</span></div>
+            <div class="org">Self-employed</div>
+            <ul class="bullets">
+                <li>Delivered end-to-end web applications, from database design to deployment, for local businesses and institutions: İZOGEM (2020), Bornova Municipality BELGEM forms (2020), Barış Dalgıç Real Estate (2021), Dalgıç Pen (2019), A'ppetit Cafe (2022).</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-head"><h3>Intern Software Developer</h3><span class="date">Mar 2018 – Jun 2018</span></div>
+            <div class="org">Image Software <span>· İzmir</span></div>
+            <ul class="bullets"><li>Worked on hotel management systems with ASP.NET MVC.</li></ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Personal Projects</h2>
+        <div class="item" style="padding-left:0">
+            <style>.section .item[style]::before, .section .item[style]::after { display: none; }</style>
+            <div class="item-head"><h3>Mobile apps under my own brand, Cordelia Software</h3><span class="date"><a href="https://cordeliasoftware.net">cordeliasoftware.net</a></span></div>
+            <p class="small">Designed, built and published end to end: .NET MAUI clients for iOS and Android, ASP.NET Core APIs, MariaDB, store releases and the servers they run on.</p>
+            <div class="apps">
+                <div class="app" style="--c:#2563eb"><div class="cat">Finance</div><h4>Kişi Başı</h4><p>Splits shared expenses with friends and works out who owes whom, with real-time sync.</p></div>
+                <div class="app" style="--c:#16a34a"><div class="cat">Sports</div><h4>SporkoLig</h4><p>Create your own football, basketball and volleyball leagues, fixtures and player stats.</p></div>
+                <div class="app" style="--c:#dc2626"><div class="cat">Health</div><h4>Nöbetçi Eczane Bulucu TR</h4><p>On-duty pharmacy finder for all of Türkiye: map, nearest by location, one-tap call.</p></div>
+            </div>
+            <div class="stack" style="margin-top:1.6mm"><b>Also:</b> operate my own Debian server hosting 20+ .NET web apps and APIs (Apache reverse proxy, systemd, MariaDB, Let's Encrypt).</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+        <div class="two">
+            <div class="item">
+                <div class="item-head"><h3>M.Sc. Software Engineering</h3></div>
+                <div class="org">İzmir Kâtip Çelebi University</div>
+                <div class="small">2020 – 2021 · GPA 3.80 / 4.00</div>
+            </div>
+            <div class="item">
+                <div class="item-head"><h3>B.Sc. Mathematics</h3></div>
+                <div class="org">Akdeniz University, Antalya</div>
+                <div class="small">2010 – 2017</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Training</h2>
+        <div class="item">
+            <div class="item-head"><h3>.NET Software Development Program (300 hours)</h3><span class="date">Jun 2018 – Sep 2018</span></div>
+            <div class="org">Bilge Adam Academy <span>· İzmir · Certificate of Achievement, score 92</span></div>
+            <div class="small">Microsoft Official Courses: Programming in C# · Developing ASP.NET MVC 4 Web Applications · Programming in HTML5 with JavaScript and CSS3</div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
