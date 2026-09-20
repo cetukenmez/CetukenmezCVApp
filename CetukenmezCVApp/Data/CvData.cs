@@ -90,7 +90,7 @@ public static class CvData
                 ["Unlimited groups", "Real-time sync", "Detailed reports"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/ki%C5%9Fi-ba%C5%9F%C4%B1/id6756876095"),
+                    new("apple", "https://apps.apple.com/tr/app/id6756876095?l=tr"),
                     new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.kisibasi.mobile"),
                 ]),
             new("SporkoLig", "Sports", "fa-solid fa-trophy",
