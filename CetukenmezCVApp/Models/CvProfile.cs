@@ -34,7 +34,8 @@ public sealed record ProjectItem(
     IReadOnlyList<string> Features,
     IReadOnlyList<string> Tech,
     IReadOnlyList<StoreLink> Stores,
-    bool IsNew = false);
+    bool IsNew = false,
+    bool IsComingSoon = false);
 
 public sealed record AchievementItem(
     string Title,

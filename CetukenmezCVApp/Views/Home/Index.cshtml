@@ -234,6 +234,10 @@
                             {
                                 <span class="project-new">New</span>
                             }
+                            @if (project.IsComingSoon)
+                            {
+                                <span class="project-soon">Coming soon</span>
+                            }
                         </div>
                     </div>
                     <h3 class="project-name">@project.Name</h3>
@@ -254,7 +258,15 @@
                     <div class="store-buttons">
                         @foreach (var store in project.Stores)
                         {
-                            if (store.Store == "apple")
+                            if (project.IsComingSoon)
+                            {
+                                @* Not in the stores yet: a quiet badge that is not a link *@
+                                <span class="store-btn is-soon" aria-disabled="true">
+                                    <i class="fa-brands @(store.Store == "apple" ? "fa-apple" : "fa-google-play")" aria-hidden="true"></i>
+                                    <span><small>Coming soon to</small>@(store.Store == "apple" ? "App Store" : "Google Play")</span>
+                                </span>
+                            }
+                            else if (store.Store == "apple")
                             {
                                 <a class="store-btn" href="@store.Url" target="_blank" rel="noopener noreferrer">
                                     <i class="fa-brands fa-apple" aria-hidden="true"></i>

@@ -344,6 +344,11 @@ p { margin: 0; }
     padding: .3rem .65rem; border-radius: var(--radius-pill); background: var(--success); color: #fff;
     font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
 }
+.project-soon {
+    padding: .3rem .65rem; border-radius: var(--radius-pill); color: var(--accent); border: 1px dashed var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
 .project-name { font-size: 1.35rem; font-weight: 700; }
 .project-tagline { color: var(--accent); font-weight: 600; font-size: .95rem; margin: .3rem 0 .75rem; }
 .project-desc { color: var(--text-2); font-size: .95rem; margin-bottom: 1rem; }
@@ -361,6 +366,8 @@ p { margin: 0; }
 .store-btn i { font-size: 1.4rem; }
 .store-btn span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; }
 .store-btn small { font-size: .65rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
+.store-btn.is-soon { opacity: .45; cursor: default; }
+.store-btn.is-soon:hover { transform: none; opacity: .45; }
 
 /* ---------- Achievements ---------- */
 .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
