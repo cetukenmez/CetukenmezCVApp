@@ -357,17 +357,19 @@ p { margin: 0; }
 .project-features i { color: var(--success); font-size: .8rem; }
 .project-card .chip-list { margin-bottom: 1.25rem; }
 .store-buttons { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+/* Store badges are always black, in both themes (like the official badges and cordeliasoftware.net) */
 .store-btn {
     display: inline-flex; align-items: center; gap: .6rem; flex: 1 1 140px;
-    padding: .55rem .9rem; border-radius: 12px; background: var(--text); color: var(--bg); line-height: 1.1;
-    transition: transform .2s var(--ease), opacity .2s var(--ease);
+    padding: .55rem .9rem; border-radius: 12px; background: #000; color: #fff; line-height: 1.1;
+    border: 1px solid rgba(255, 255, 255, .14);
+    transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
 }
-.store-btn:hover { text-decoration: none; transform: translateY(-2px); opacity: .92; }
+.store-btn:hover { text-decoration: none; transform: translateY(-2px); background: #111; border-color: rgba(255, 255, 255, .35); }
 .store-btn i { font-size: 1.4rem; }
 .store-btn span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; }
 .store-btn small { font-size: .65rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
-.store-btn.is-soon { opacity: .45; cursor: default; }
-.store-btn.is-soon:hover { transform: none; opacity: .45; }
+.store-btn.is-soon { opacity: .5; cursor: default; border-style: dashed; }
+.store-btn.is-soon:hover { transform: none; background: #000; border-color: rgba(255, 255, 255, .14); }
 
 /* ---------- Achievements ---------- */
 .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
