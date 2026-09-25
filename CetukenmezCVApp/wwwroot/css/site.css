@@ -361,18 +361,21 @@ p { margin: 0; }
 .store-btn {
     display: inline-flex; align-items: center; gap: .5rem; flex: 1 1 140px;
     padding: .55rem .8rem; border-radius: 12px; background: #fff; color: #0f172a; line-height: 1.1;
-    border: 1px solid rgba(15, 23, 42, .16);
-    transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    border: 1px solid rgba(15, 23, 42, .3);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .08), 0 4px 12px -2px rgba(15, 23, 42, .14);
+    transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
-.store-btn:hover { text-decoration: none; transform: translateY(-2px); background: #f8fafc; border-color: rgba(15, 23, 42, .35); }
-[data-theme="dark"] .store-btn { background: #000; color: #fff; border-color: rgba(255, 255, 255, .14); }
-[data-theme="dark"] .store-btn:hover { background: #111; border-color: rgba(255, 255, 255, .35); }
+.store-btn:hover { text-decoration: none; transform: translateY(-2px); background: #fff; border-color: rgba(15, 23, 42, .5);
+    box-shadow: 0 2px 4px rgba(15, 23, 42, .1), 0 10px 22px -6px rgba(15, 23, 42, .24); }
+[data-theme="dark"] .store-btn { background: #000; color: #fff; border-color: rgba(255, 255, 255, .14); box-shadow: none; }
+[data-theme="dark"] .store-btn:hover { background: #111; border-color: rgba(255, 255, 255, .35); box-shadow: none; }
 .store-btn i { font-size: 1.4rem; }
 .store-btn span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; white-space: nowrap; }
 .store-btn small { font-size: .65rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
 .store-btn.is-soon { opacity: .5; cursor: default; border-style: dashed; }
-.store-btn.is-soon:hover { transform: none; background: #fff; border-color: rgba(15, 23, 42, .16); }
-[data-theme="dark"] .store-btn.is-soon:hover { background: #000; border-color: rgba(255, 255, 255, .14); }
+.store-btn.is-soon:hover { transform: none; background: #fff; border-color: rgba(15, 23, 42, .3);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .08), 0 4px 12px -2px rgba(15, 23, 42, .14); }
+[data-theme="dark"] .store-btn.is-soon:hover { background: #000; border-color: rgba(255, 255, 255, .14); box-shadow: none; }
 
 /* ---------- Achievements ---------- */
 .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
