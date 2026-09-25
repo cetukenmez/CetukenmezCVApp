@@ -90,8 +90,8 @@ public static class CvData
                 ["Unlimited groups", "Real-time sync", "Detailed reports"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6756876095?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.kisibasi.mobile"),
+                    new("apple", "https://cordeliasoftware.net/kisibasi"),
+                    new("google", "https://cordeliasoftware.net/kisibasi"),
                 ]),
             new("SporkoLig", "Sports", "fa-solid fa-trophy",
                 "Your own leagues, your own stats",
@@ -100,8 +100,8 @@ public static class CvData
                 ["Multiple sports", "Custom leagues & fixtures", "Player statistics"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/sporkolig/id6759477300"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.sportsleague.mobile"),
+                    new("apple", "https://cordeliasoftware.net/sporkolig"),
+                    new("google", "https://cordeliasoftware.net/sporkolig"),
                 ]),
             new("Nöbetçi Eczane Bulucu TR", "Health", "fa-solid fa-briefcase-medical",
                 "On-duty pharmacy finder for Türkiye",
@@ -110,8 +110,8 @@ public static class CvData
                 ["All provinces & districts", "Nearest pharmacy by location", "One-tap call & directions"],
                 [".NET MAUI", "ASP.NET Core API", "Maps"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/n%C3%B6bet%C3%A7i-eczane-bulucu-tr/id6808086249"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.nobetcieczane"),
+                    new("apple", "https://cordeliasoftware.net/nobetci"),
+                    new("google", "https://cordeliasoftware.net/nobetci"),
                 ],
                 IsNew: true),
         ],
