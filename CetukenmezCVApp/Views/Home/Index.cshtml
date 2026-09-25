@@ -205,6 +205,17 @@
     </div>
 </section>
 
+@functions {
+    // The category tag takes the category's colour, so apps in the same category match (Finance = Kişi Başı's blue).
+    private static string CategoryColor(string category, string fallback) => category switch
+    {
+        "Finance" => "#3b82f6",
+        "Sports" => "#22c55e",
+        "Health" => "#ef4444",
+        "Food & Drink" => "#14b8a6",
+        _ => fallback,
+    };
+}
 <!-- ============ PROJECTS ============ -->
 <section class="section" id="projects">
     <div class="container">
@@ -229,7 +240,7 @@
                     <div class="project-top">
                         <img class="project-logo" src="@project.Logo" alt="@project.Name logo" width="96" height="96" loading="lazy" />
                         <div class="project-badges">
-                            <span class="project-tag"><i class="@project.CategoryIcon" aria-hidden="true"></i> @project.Category</span>
+                            <span class="project-tag" style="--tag:@(CategoryColor(project.Category, project.Accent))"><i class="@project.CategoryIcon" aria-hidden="true"></i> @project.Category</span>
                             @if (project.IsNew)
                             {
                                 <span class="project-new">New</span>

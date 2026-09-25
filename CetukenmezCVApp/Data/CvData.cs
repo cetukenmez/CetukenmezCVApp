@@ -112,8 +112,7 @@ public static class CvData
                 [
                     new("apple", "https://cordeliasoftware.net/nobetci"),
                     new("google", "https://cordeliasoftware.net/nobetci"),
-                ],
-                IsNew: true),
+                ]),
             new("Hesap Radarı", "Food & Drink", "fa-solid fa-utensils",
                 "See the bill before you go",
                 "Up-to-date restaurant and café prices from real receipts shared by users. Compare venues, find where it's cheapest and keep track of price hikes.",
@@ -124,7 +123,7 @@ public static class CvData
                     new("apple", "https://cordeliasoftware.net/hesapradari"),
                     new("google", "https://cordeliasoftware.net/hesapradari"),
                 ],
-                IsComingSoon: true),
+                IsNew: true, IsComingSoon: true),
             new("Bütçe Planla", "Finance", "fa-solid fa-chart-pie",
                 "See the end of the month today",
                 "Enter your salary, rent, loans and cards once; see what's left this month, upcoming payments and the end of the month ahead of time. Personal or shared family budget.",
@@ -135,7 +134,7 @@ public static class CvData
                     new("apple", "https://cordeliasoftware.net/butceplanla"),
                     new("google", "https://cordeliasoftware.net/butceplanla"),
                 ],
-                IsComingSoon: true),
+                IsNew: true, IsComingSoon: true),
         ],
 
         Achievements:
