@@ -359,8 +359,8 @@ p { margin: 0; }
 .store-buttons { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
 /* Store badges: white in the light theme, black in the dark theme (like cordeliasoftware.net) */
 .store-btn {
-    display: inline-flex; align-items: center; gap: .6rem; flex: 1 1 140px;
-    padding: .55rem .9rem; border-radius: 12px; background: #fff; color: #0f172a; line-height: 1.1;
+    display: inline-flex; align-items: center; gap: .5rem; flex: 1 1 140px;
+    padding: .55rem .8rem; border-radius: 12px; background: #fff; color: #0f172a; line-height: 1.1;
     border: 1px solid rgba(15, 23, 42, .16);
     transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
 }
@@ -368,7 +368,7 @@ p { margin: 0; }
 [data-theme="dark"] .store-btn { background: #000; color: #fff; border-color: rgba(255, 255, 255, .14); }
 [data-theme="dark"] .store-btn:hover { background: #111; border-color: rgba(255, 255, 255, .35); }
 .store-btn i { font-size: 1.4rem; }
-.store-btn span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; }
+.store-btn span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; white-space: nowrap; }
 .store-btn small { font-size: .65rem; font-weight: 500; opacity: .8; letter-spacing: .02em; }
 .store-btn.is-soon { opacity: .5; cursor: default; border-style: dashed; }
 .store-btn.is-soon:hover { transform: none; background: #fff; border-color: rgba(15, 23, 42, .16); }
