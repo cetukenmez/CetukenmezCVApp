@@ -124,7 +124,7 @@ public static class CvData
                     new("google", "https://cordeliasoftware.net/hesapradari"),
                 ],
                 IsNew: true, IsComingSoon: true),
-            new("Bütçe Planla", "Finance", "fa-solid fa-chart-pie",
+            new("Bütçe Planla", "Finance", "fa-solid fa-wallet",
                 "See the end of the month today",
                 "Enter your salary, rent, loans and cards once; see what's left this month, upcoming payments and the end of the month ahead of time. Personal or shared family budget.",
                 "/images/projects/butceplanla.webp", "#f59e0b",
