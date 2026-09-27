@@ -120,10 +120,10 @@ public static class CvData
                 ["Prices from real receipts", "Venue comparison", "Price-hike radar"],
                 [".NET MAUI", "ASP.NET Core API", "OCR"],
                 [
-                    new("apple", "https://cordeliasoftware.net/hesapradari"),
-                    new("google", "https://cordeliasoftware.net/hesapradari"),
+                    new("apple", "https://apps.apple.com/app/id6815099687"),
+                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.hesapradari"),
                 ],
-                IsNew: true, IsComingSoon: true),
+                IsNew: true),
             new("Bütçe Planla", "Finance", "fa-solid fa-wallet",
                 "See the end of the month today",
                 "Enter your salary, rent, loans and cards once; see what's left this month, upcoming payments and the end of the month ahead of time. Personal or shared family budget.",
@@ -131,10 +131,10 @@ public static class CvData
                 ["Month-end forecast", "Loan & card tracking", "Shared family budget"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://cordeliasoftware.net/butceplanla"),
-                    new("google", "https://cordeliasoftware.net/butceplanla"),
+                    new("apple", "https://apps.apple.com/app/id6815442218"),
+                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.butcem"),
                 ],
-                IsNew: true, IsComingSoon: true),
+                IsNew: true),
         ],
 
         Achievements:
