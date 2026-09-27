@@ -1,16 +1,6 @@
 @model CvProfile
 @{
     var startYear = 2018;
-
-    // App Store links: on a computer the App Store web page language comes from the address (the plain address opens in
-    // English), so a visitor whose browser prefers Turkish gets /tr/app/id…?l=tr. iPhone/iPad keep the plain address: the
-    // App Store app shows the device language anyway, and "?l=" makes iOS ask "Open in App Store?" first.
-    var userAgent = Context.Request.Headers.UserAgent.ToString();
-    var isAppleMobile = userAgent.Contains("iPhone") || userAgent.Contains("iPad") || userAgent.Contains("iPod");
-    var prefersTurkish = Context.Request.Headers.AcceptLanguage.ToString().TrimStart().StartsWith("tr", StringComparison.OrdinalIgnoreCase);
-    string StoreHref(string url) => prefersTurkish && !isAppleMobile && url.StartsWith("https://apps.apple.com/app/id")
-        ? url.Replace("https://apps.apple.com/app/", "https://apps.apple.com/tr/app/") + "?l=tr"
-        : url;
     var jsonLd = System.Text.Json.JsonSerializer.Serialize(new Dictionary<string, object?>
     {
         ["@context"] = "https://schema.org",
@@ -289,14 +279,14 @@
                             }
                             else if (store.Store == "apple")
                             {
-                                <a class="store-btn" href="@StoreHref(store.Url)" target="_blank" rel="noopener noreferrer">
+                                <a class="store-btn" href="@store.Url" target="_blank" rel="noopener noreferrer">
                                     <i class="fa-brands fa-apple" aria-hidden="true"></i>
                                     <span><small>Download on the</small>App Store</span>
                                 </a>
                             }
                             else
                             {
-                                <a class="store-btn" href="@StoreHref(store.Url)" target="_blank" rel="noopener noreferrer">
+                                <a class="store-btn" href="@store.Url" target="_blank" rel="noopener noreferrer">
                                     <i class="fa-brands fa-google-play" aria-hidden="true"></i>
                                     <span><small>Get it on</small>Google Play</span>
                                 </a>
