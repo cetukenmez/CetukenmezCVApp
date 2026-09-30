@@ -81,6 +81,9 @@ public static class CvData
             new("Science & Mathematics", "Atakent Anatolian High School", "2006 – 2010", ["GPA 3.56 / 5.00"]),
         ],
 
+        // Store buttons go through the cordeliasoftware.net short links so the Cordelia panel counts the clicks:
+        // "?mgz=ios" / "?mgz=android" redirects straight to that store's Turkish page, "s=cv" names this site as
+        // the source (CordeliaSoftware repo: Panel/AppCatalog.cs, README "Sitelerdeki mağaza düğmeleri").
         Projects:
         [
             new("Kişi Başı", "Finance", "fa-solid fa-wallet",
@@ -90,8 +93,8 @@ public static class CvData
                 ["Unlimited groups", "Real-time sync", "Detailed reports"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6756876095?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.kisibasi.mobile&hl=tr"),
+                    new("apple", "https://cordeliasoftware.net/kisibasi?mgz=ios&s=cv"),
+                    new("google", "https://cordeliasoftware.net/kisibasi?mgz=android&s=cv"),
                 ]),
             new("SporkoLig", "Sports", "fa-solid fa-trophy",
                 "Your own leagues, your own stats",
@@ -100,8 +103,8 @@ public static class CvData
                 ["Multiple sports", "Custom leagues & fixtures", "Player statistics"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6759477300?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.sportsleague.mobile&hl=tr"),
+                    new("apple", "https://cordeliasoftware.net/sporkolig?mgz=ios&s=cv"),
+                    new("google", "https://cordeliasoftware.net/sporkolig?mgz=android&s=cv"),
                 ]),
             new("Nöbetçi Eczane Bulucu TR", "Health", "fa-solid fa-briefcase-medical",
                 "On-duty pharmacy finder for Türkiye",
@@ -110,8 +113,8 @@ public static class CvData
                 ["All provinces & districts", "Nearest pharmacy by location", "One-tap call & directions"],
                 [".NET MAUI", "ASP.NET Core API", "Maps"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6808086249?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.nobetcieczane&hl=tr"),
+                    new("apple", "https://cordeliasoftware.net/nobetci?mgz=ios&s=cv"),
+                    new("google", "https://cordeliasoftware.net/nobetci?mgz=android&s=cv"),
                 ]),
             new("Hesap Radarı", "Food & Drink", "fa-solid fa-utensils",
                 "See the bill before you go",
@@ -120,8 +123,8 @@ public static class CvData
                 ["Prices from real receipts", "Venue comparison", "Price-hike radar"],
                 [".NET MAUI", "ASP.NET Core API", "OCR"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6815099687?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.hesapradari&hl=tr"),
+                    new("apple", "https://cordeliasoftware.net/hesapradari?mgz=ios&s=cv"),
+                    new("google", "https://cordeliasoftware.net/hesapradari?mgz=android&s=cv"),
                 ],
                 IsNew: true),
             new("Bütçe Planla", "Finance", "fa-solid fa-wallet",
@@ -131,8 +134,8 @@ public static class CvData
                 ["Month-end forecast", "Loan & card tracking", "Shared family budget"],
                 [".NET MAUI", "ASP.NET Core API", "MySQL"],
                 [
-                    new("apple", "https://apps.apple.com/tr/app/id6815442218?l=tr"),
-                    new("google", "https://play.google.com/store/apps/details?id=com.cordeliasoftware.butcem&hl=tr"),
+                    new("apple", "https://cordeliasoftware.net/butceplanla?mgz=ios&s=cv"),
+                    new("google", "https://cordeliasoftware.net/butceplanla?mgz=android&s=cv"),
                 ],
                 IsNew: true),
         ],
