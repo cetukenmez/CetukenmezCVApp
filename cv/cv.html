@@ -108,12 +108,11 @@
     .stack { margin-top: .6mm; font-size: 7.6pt; color: var(--muted); }
     .stack b { color: var(--ink-2); font-weight: 600; }
 
-    .apps { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 5mm; margin-top: 1.2mm; }
-    .app { display: grid; grid-template-columns: auto 1fr; gap: .4mm 2mm; align-items: baseline; align-content: start; padding-left: 2.6mm; position: relative; }
-    .app::before { content: ''; position: absolute; left: 0; top: 1.3mm; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--c); }
-    .app h4 { font-family: 'Outfit', sans-serif; font-size: 8.6pt; font-weight: 600; color: var(--ink); line-height: 1.25; white-space: nowrap; }
-    .app .cat { font-size: 6.4pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
-    .app p { grid-column: 1 / -1; font-size: 7.6pt; line-height: 1.35; color: var(--ink-2); }
+    .apps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.8mm; margin-top: 1.4mm; }
+    .app { border: .3mm solid var(--line); border-radius: 2.2mm; padding: 1.5mm 1.8mm 1.7mm; border-top: .9mm solid var(--c); }
+    .app h4 { font-family: 'Outfit', sans-serif; font-size: 8.2pt; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .app .cat { font-size: 6.3pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); margin-bottom: .5mm; white-space: nowrap; }
+    .app p { font-size: 7.1pt; line-height: 1.32; margin-top: .5mm; color: var(--ink-2); }
 
     .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 7mm; }
     .two .item::after { display: none; }
@@ -231,11 +230,11 @@
             <div class="item-head"><h3>Mobile apps under my own brand, Cordelia Software</h3><span class="date"><a href="https://cordeliasoftware.net">cordeliasoftware.net</a></span></div>
             <p class="small">Designed, built and published end to end: .NET MAUI clients for iOS and Android, ASP.NET Core APIs, MariaDB, store releases and the servers they run on.</p>
             <div class="apps">
-                <div class="app" style="--c:#2563eb"><h4>Kişi Başı</h4><div class="cat">Finance</div><p>Splits shared expenses with friends and works out who owes whom, in real time.</p></div>
-                <div class="app" style="--c:#16a34a"><h4>SporkoLig</h4><div class="cat">Sports</div><p>Your own football, basketball and volleyball leagues, fixtures and player stats.</p></div>
-                <div class="app" style="--c:#dc2626"><h4>Nöbetçi Eczane Bulucu TR</h4><div class="cat">Health</div><p>On-duty pharmacy finder for all of Türkiye: map, nearest by location, one-tap call.</p></div>
-                <div class="app" style="--c:#0d9488"><h4>Hesap Radarı</h4><div class="cat">Food &amp; Drink</div><p>Restaurant and café prices from real receipts; compare venues, spot price hikes.</p></div>
-                <div class="app" style="--c:#d97706"><h4>Bütçe Planla</h4><div class="cat">Finance</div><p>Enter salary, rent, loans and cards once; see the month-end before it comes.</p></div>
+                <div class="app" style="--c:#2563eb"><div class="cat">Finance</div><h4>Kişi Başı</h4><p>Split shared expenses with friends; see who owes whom.</p></div>
+                <div class="app" style="--c:#16a34a"><div class="cat">Sports</div><h4>SporkoLig</h4><p>Your own leagues, fixtures and player stats.</p></div>
+                <div class="app" style="--c:#dc2626"><div class="cat">Health</div><h4>Nöbetçi Eczane</h4><p>On-duty pharmacy finder for all of Türkiye.</p></div>
+                <div class="app" style="--c:#0d9488"><div class="cat">Food &amp; Drink</div><h4>Hesap Radarı</h4><p>Menu prices from real receipts; spot price hikes.</p></div>
+                <div class="app" style="--c:#d97706"><div class="cat">Finance</div><h4>Bütçe Planla</h4><p>Salary, rent, loans in once; see the month-end early.</p></div>
             </div>
             <div class="stack" style="margin-top:1.2mm"><b>Also:</b> operate my own Debian server hosting 20+ .NET web apps and APIs (Apache reverse proxy, systemd, MariaDB, Let's Encrypt).</div>
         </div>
