@@ -35,7 +35,7 @@ public static class CvData
         Stats:
         [
             new("8+", "Years of experience"),
-            new("3", "Published mobile apps"),
+            new("5", "Published mobile apps"),
             new("5", "European championships"),
             new("1", "European silver medal"),
         ],

@@ -76,7 +76,7 @@
     .plain span { color: var(--side-muted); }
 
     /* ---------- Main ---------- */
-    .main { padding: 9mm 10mm 7mm 9.5mm; display: flex; flex-direction: column; gap: 3.5mm; }
+    .main { padding: 8.5mm 10mm 6mm 9.5mm; display: flex; flex-direction: column; gap: 3mm; }
 
     .head h1 { font-size: 25pt; font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--ink); }
     .head h1 span { color: var(--accent); }
@@ -108,11 +108,12 @@
     .stack { margin-top: .6mm; font-size: 7.6pt; color: var(--muted); }
     .stack b { color: var(--ink-2); font-weight: 600; }
 
-    .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; margin-top: 1.8mm; }
-    .app { border: .3mm solid var(--line); border-radius: 2.4mm; padding: 1.8mm 2.2mm; border-top: .9mm solid var(--c); }
-    .app h4 { font-family: 'Outfit', sans-serif; font-size: 8.8pt; white-space: nowrap; font-weight: 600; color: var(--ink); line-height: 1.2; }
-    .app .cat { font-size: 7pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); margin-bottom: .6mm; }
-    .app p { font-size: 7.4pt; line-height: 1.35; margin-top: .6mm; }
+    .apps { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 5mm; margin-top: 1.2mm; }
+    .app { display: grid; grid-template-columns: auto 1fr; gap: .4mm 2mm; align-items: baseline; align-content: start; padding-left: 2.6mm; position: relative; }
+    .app::before { content: ''; position: absolute; left: 0; top: 1.3mm; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--c); }
+    .app h4 { font-family: 'Outfit', sans-serif; font-size: 8.6pt; font-weight: 600; color: var(--ink); line-height: 1.25; white-space: nowrap; }
+    .app .cat { font-size: 6.4pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+    .app p { grid-column: 1 / -1; font-size: 7.6pt; line-height: 1.35; color: var(--ink-2); }
 
     .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 7mm; }
     .two .item::after { display: none; }
@@ -182,7 +183,7 @@
     <header class="head">
         <h1>Can Erdem <span>Tükenmez</span></h1>
         <div class="role">Software Developer</div>
-        <p>Software developer with 8+ years of experience building backend systems and web applications on the .NET stack, currently at Migros, Türkiye's leading grocery retailer. In my own time I design, build and publish cross-platform mobile apps with .NET MAUI, three of them live on the App Store and Google Play, and run the Linux servers behind them. M.Sc. in Software Engineering; European silver medallist with the national bridge team.</p>
+        <p>Software developer with 8+ years on the .NET stack, currently building backend systems at Migros, Türkiye's leading grocery retailer. On the side I design, build and publish .NET MAUI mobile apps, five of them live on the App Store and Google Play, and run the Linux servers behind them. M.Sc. in Software Engineering; European silver medallist with the national bridge team.</p>
     </header>
 
     <section class="section">
@@ -212,7 +213,7 @@
             <div class="item-head"><h3>Freelance Software Developer</h3><span class="date">2018 – Present</span></div>
             <div class="org">Self-employed</div>
             <ul class="bullets">
-                <li>Delivered end-to-end web applications, from database design to deployment, for local businesses and institutions: İZOGEM (2020), Bornova Municipality BELGEM forms (2020), Barış Dalgıç Real Estate (2021), Dalgıç Pen (2019), A'ppetit Cafe (2022).</li>
+                <li>End-to-end web applications for local businesses and institutions, from database design to deployment: İZOGEM, Bornova Municipality (BELGEM), Barış Dalgıç Real Estate, Dalgıç Pen, A'ppetit Cafe.</li>
             </ul>
         </div>
 
@@ -230,11 +231,13 @@
             <div class="item-head"><h3>Mobile apps under my own brand, Cordelia Software</h3><span class="date"><a href="https://cordeliasoftware.net">cordeliasoftware.net</a></span></div>
             <p class="small">Designed, built and published end to end: .NET MAUI clients for iOS and Android, ASP.NET Core APIs, MariaDB, store releases and the servers they run on.</p>
             <div class="apps">
-                <div class="app" style="--c:#2563eb"><div class="cat">Finance</div><h4>Kişi Başı</h4><p>Splits shared expenses with friends and works out who owes whom, with real-time sync.</p></div>
-                <div class="app" style="--c:#16a34a"><div class="cat">Sports</div><h4>SporkoLig</h4><p>Create your own football, basketball and volleyball leagues, fixtures and player stats.</p></div>
-                <div class="app" style="--c:#dc2626"><div class="cat">Health</div><h4>Nöbetçi Eczane Bulucu TR</h4><p>On-duty pharmacy finder for all of Türkiye: map, nearest by location, one-tap call.</p></div>
+                <div class="app" style="--c:#2563eb"><h4>Kişi Başı</h4><div class="cat">Finance</div><p>Splits shared expenses with friends and works out who owes whom, in real time.</p></div>
+                <div class="app" style="--c:#16a34a"><h4>SporkoLig</h4><div class="cat">Sports</div><p>Your own football, basketball and volleyball leagues, fixtures and player stats.</p></div>
+                <div class="app" style="--c:#dc2626"><h4>Nöbetçi Eczane Bulucu TR</h4><div class="cat">Health</div><p>On-duty pharmacy finder for all of Türkiye: map, nearest by location, one-tap call.</p></div>
+                <div class="app" style="--c:#0d9488"><h4>Hesap Radarı</h4><div class="cat">Food &amp; Drink</div><p>Restaurant and café prices from real receipts; compare venues, spot price hikes.</p></div>
+                <div class="app" style="--c:#d97706"><h4>Bütçe Planla</h4><div class="cat">Finance</div><p>Enter salary, rent, loans and cards once; see the month-end before it comes.</p></div>
             </div>
-            <div class="stack" style="margin-top:1.6mm"><b>Also:</b> operate my own Debian server hosting 20+ .NET web apps and APIs (Apache reverse proxy, systemd, MariaDB, Let's Encrypt).</div>
+            <div class="stack" style="margin-top:1.2mm"><b>Also:</b> operate my own Debian server hosting 20+ .NET web apps and APIs (Apache reverse proxy, systemd, MariaDB, Let's Encrypt).</div>
         </div>
     </section>
 
